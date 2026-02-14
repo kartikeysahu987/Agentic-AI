@@ -32,9 +32,22 @@ A conversational chatbot built with **LangGraph** and **Streamlit**, using MCP (
    pip install -r requirements.txt
    ```
 
-4. **Environment variables** (optional):
+4. **Create a `.env` file** in the project root with the following variables (fill in your own values):
 
-   Create a `.env` file in the project root if you use API keys or override config (e.g. for OpenAI). The app can run with Hugging Face endpoints as configured in the code.
+   ```
+   OPENAI_API_KEY=
+   GOOGLE_API_KEY=
+   HUGGINGFACEHUB_ACCESS_TOKEN=
+   HUGGINGFACEHUB_API_TOKEN=
+   HF_TOKEN=
+
+   LANGCHAIN_TRACING_V2=
+   LANGCHAIN_ENDPOINT=
+   LANGCHAIN_API_KEY=
+   LANGCHAIN_PROJECT=
+   ```
+
+   Just fill in the values, save the file, and run the app — it will run smoothly.
 
 ## Run
 
