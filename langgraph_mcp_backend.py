@@ -1,13 +1,15 @@
 from langgraph.graph import StateGraph, START, END
 from typing import TypedDict, Annotated
 from langchain_core.messages import BaseMessage, HumanMessage
-from langchain_openai import ChatOpenAI
+# from langchain_openai im  port ChatOpenAI
 from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.tools import tool, BaseTool
 from langchain_mcp_adapters.client import MultiServerMCPClient
+from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
+
 from dotenv import load_dotenv
 import aiosqlite
 import requests
@@ -38,7 +40,16 @@ def submit_async_task(coro):
 # -------------------
 # 1. LLM
 # -------------------
-llm = ChatOpenAI()
+# llm = ChatOpenAI()
+x =HuggingFaceEndpoint(
+    repo_id="openai/gpt-oss-120b",
+    task="text-generation"
+    
+
+)
+
+llm=ChatHuggingFace(llm=x)
+
 
 # -------------------
 # 2. Tools
